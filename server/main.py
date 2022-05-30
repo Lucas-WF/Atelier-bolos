@@ -5,7 +5,7 @@ from modules.root.resource.root import Root
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////project.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///project.db'
 api = Api(app)
 db = SQLAlchemy(app)
 
