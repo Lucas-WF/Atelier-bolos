@@ -1,13 +1,20 @@
 from flask import Flask
 from flask_restful import Api
-from modules.root.root import Root
-from modules.users.users import Users
+from modules.login.resource.login import Login
+from modules.root.resource.root import Root
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////project.db'
 api = Api(app)
+db = SQLAlchemy(app)
 
-api.add_resource(Root, "/",)
-api.add_resource(Users, "/users/",)
+@app.before_first_request
+def create_tables():
+    db.create_all()
+
+api.add_resource(Root, '/', )
+api.add_resource(Login, "/login",)
 
 if __name__ == "__main__":
     app.run(debug=True)
