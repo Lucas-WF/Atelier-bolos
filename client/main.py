@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+from controllers.auth import auth
 
 app = Flask(__name__)
 
@@ -11,9 +12,7 @@ def index():
 def about():
     return render_template("about.html")
 
-@app.route("/login")
-def login():
-    return render_template("login.html")
+app.register_blueprint(auth, url_prefix="/")
 
 if __name__ == "__main__":
     app.run(debug=True)
