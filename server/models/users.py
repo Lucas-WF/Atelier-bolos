@@ -21,9 +21,9 @@ class User(db.Model):
 
     @classmethod
     def find_by_email(cls, email):
-        email = cls.query.filter_by(email=email).first()
-        if email is not None:
-            return email
+        mail = cls.query.filter_by(email=email).first()
+        if mail is not None:
+            return mail
         return None
 
     @classmethod

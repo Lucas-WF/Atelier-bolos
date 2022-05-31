@@ -5,5 +5,8 @@ from models.users import User
 class Login(Resource):
     def post(self):
         data = request.get_json()
-        print(data)
-        return data, 200
+        email = data['email']
+        password = data['password']
+        mail = User.query.filter_by(email=email).first()
+        if mail and mail.password == password:
+            return {'message': 'Logged in successfully'}, 200

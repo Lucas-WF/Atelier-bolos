@@ -10,12 +10,14 @@ class Register(Resource):
         email = data['email']
         password = data['password']
 
+        print(username, email, password)
+
         if username and password and email:
             user = User.query.filter_by(username=username).first()
-            email = User.query.filter_by(email=email).first()
+            mail = User.query.filter_by(email=email).first()
             if user:
                 return {'message': 'User already exists'}, 400
-            elif email:
+            elif mail:
                 return {'message': 'Email already exists'}, 400
             else:
                 new_user = User(username=username, password=password, email=email)
