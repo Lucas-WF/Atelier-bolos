@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "./Logo.jsx";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
     return (
@@ -11,10 +12,10 @@ export default function Nav() {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="/">Sobre nós</a>
+                        <Link class="nav-link text-light" to="/">Sobre nós</Link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="/">Entrar</a>
+                        <Link class="nav-link text-light" to="/login">Entrar</Link>
                     </li>
                 </ul>
             </div>

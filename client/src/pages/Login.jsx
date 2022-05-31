@@ -8,13 +8,16 @@ export default function Login({ history }) {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const response = await api.post('/login', {
+        await api.post('/login', {
             email: email,
             password: password
+        }).then(response => {
+            if (response.status === 200) {
+                history.push('/');
+            }
+        }).catch(error => {
         });
 
-        console.log(response.data);
-        history.push('/');
     }
 
     return (

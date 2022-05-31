@@ -10,3 +10,5 @@ class Login(Resource):
         mail = User.query.filter_by(email=email).first()
         if mail and mail.password == password:
             return {'message': 'Logged in successfully'}, 200
+        else:
+            return {'message': 'Wrong credentials'}, 401
