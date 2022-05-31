@@ -12,10 +12,10 @@ export default function Nav() {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <Link class="nav-link text-light" to="/">Sobre nós</Link>
+                        <Link to="/" class="nav-link text-light">Sobre nós</Link>
                     </li>
                     <li class="nav-item">
-                        <Link class="nav-link text-light" to="/login">Entrar</Link>
+                        <Link to="/login" class="nav-link text-light">Entrar</Link>
                     </li>
                 </ul>
             </div>

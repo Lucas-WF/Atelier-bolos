@@ -29,7 +29,7 @@ export default function Register( { history } ) {
 
                 <div class="form-outline mb-4">
                     <label for="username" class="sr-only">Nome de usuário</label>
-                    <input placeholder="Palavra-passe" type="text" id="username" name="username" value={username} onChange={event => setUsername(event.target.value)} class="form-control" />
+                    <input placeholder="Nome de usuário" type="text" id="username" name="username" value={username} onChange={event => setUsername(event.target.value)} class="form-control" />
                 </div>
 
                 <div class="form-outline mb-4">

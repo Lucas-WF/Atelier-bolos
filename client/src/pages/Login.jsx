@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import api from '../services/api.js'
+import { Link } from 'react-router-dom'
 
 export default function Login({ history }) {
     const [email, setEmail] = useState('');
@@ -40,7 +41,7 @@ export default function Login({ history }) {
                 <button type="submit" class="btn btn-primary btn-block mb-4">Entrar</button>
 
                 <div class="text-center">
-                    <p>Não tem uma conta? <a href="{{url_for('auth.register')}}">Registre-se</a></p>
+                    <p>Não tem uma conta? <Link to="/register">Registre-se</Link></p>
                 </div>
             </form>
         </div>
