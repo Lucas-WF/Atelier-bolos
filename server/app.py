@@ -11,9 +11,11 @@ from flask_migrate import Migrate
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///project.db'
 api = Api(app)
+
 CORS(app, expose_headers=['Allow'])
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['CORS_ENABLED'] = True
+
 db.init_app(app)
 migrate = Migrate(app, db)
 
