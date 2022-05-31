@@ -1,5 +1,6 @@
 import {React, useState} from "react";
 import api from "../services/api";
+import "../assets/css/Auth.css";
 
 export default function Register( { history } ) {
     const [email, setEmail] = useState('');
@@ -20,7 +21,8 @@ export default function Register( { history } ) {
     }
 
     return (
-        <div class="container text-center w-25">
+        <div class="container mx-auto text-center w-25 mt-5">
+            <h1 class="mb-5">Crie sua conta</h1>
             <form class="form-signin text-center" onSubmit={handleSubmit}>
                 <div class="form-outline mb-4">
                     <label for="email" class="sr-only">Email</label>

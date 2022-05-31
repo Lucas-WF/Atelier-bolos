@@ -7,7 +7,7 @@ export default function Logo() {
     return (
         <div className="logo">
             <Link to="/" class="logo">
-            <img src={logo} alt="logo" width="80" height="80" class="rotateImage"/>
+                <img src={logo} alt="logo" width="80" height="80" class="rotateImage"/>
             </Link>
         </div>
     );

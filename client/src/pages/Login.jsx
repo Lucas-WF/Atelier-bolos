@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import api from '../services/api.js'
 import { Link } from 'react-router-dom'
+import "../assets/css/Auth.css";
 
 export default function Login({ history }) {
     const [email, setEmail] = useState('');
@@ -22,7 +23,8 @@ export default function Login({ history }) {
     }
 
     return (
-        <div class="container text-center w-25">
+        <div class="container mx-auto text-center w-25 mt-5">
+            <h1 class="mb-5">Bolinhooo...</h1>
             <form class="form-signin text-center" onSubmit={handleSubmit}>
                 <div class="form-outline mb-4">
                     <input placeholder="E-mail do usuário" type="email" id="email" name="email" value={email} onChange={event => setEmail(event.target.value)} class="form-control" />
