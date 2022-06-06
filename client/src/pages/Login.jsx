@@ -36,7 +36,7 @@ export default function Login({ history }) {
 
                 <div class="row mb-4">
                     <div class="col">
-                        <a href="#!">Esqueceu a senha?</a>
+                        <p><Link to="/forgotpass">Esqueceu a senha?</Link></p>
                     </div>
                 </div>
 
