@@ -34,12 +34,6 @@ export default function Login({ history }) {
                     <input placeholder="Palavra-passe" type="password" id="password" name="email" value={password} onChange={event => setPassword(event.target.value)} class="form-control" />
                 </div>
 
-                <div class="row mb-4">
-                    <div class="col">
-                        <p><Link to="/forgotpass">Esqueceu a senha?</Link></p>
-                    </div>
-                </div>
-
                 <button type="submit" class="btn btn-primary btn-block mb-4">Entrar</button>
 
                 <div class="text-center">

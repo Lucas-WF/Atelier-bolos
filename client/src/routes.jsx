@@ -5,7 +5,6 @@ import Register from "./pages/Register.jsx";
 import Home from "./pages/Home.jsx";
 import Nav from "./templates/Nav.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
-import ForgotPass from "./pages/ForgotPass.jsx";
 
 export default function Routes() {
     return (
@@ -15,7 +14,6 @@ export default function Routes() {
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/aboutus" component={AboutUs} />
-            <Route path="/forgotpass" component={ForgotPass} />
 
         </BrowserRouter>
     );
