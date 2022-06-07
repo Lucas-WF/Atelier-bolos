@@ -1,6 +1,6 @@
 from flask_restful import Resource
 from flask import request
-from models.users import User
+from models.users import Users
 
 class Register(Resource):
     def post(self):
@@ -10,18 +10,16 @@ class Register(Resource):
         email = data['email']
         password = data['password']
 
-        print(username, email, password)
-
         if username and password and email:
-            user = User.query.filter_by(username=username).first()
-            mail = User.query.filter_by(email=email).first()
+            user = Users.find_by_username(username=username)
+            mail = Users.find_by_email(email=email)
             if user:
                 return {'message': 'User already exists'}, 400
             elif mail:
                 return {'message': 'Email already exists'}, 400
             else:
-                new_user = User(username=username, password=password, email=email)
-                User.save_user(new_user)
+                new_user = Users(username=username, password=password, email=email)
+                Users.save_user(new_user)
                 return {'message': 'User created successfully'}, 201
         else:
             return {'message': 'Please provide both username and password'}, 400

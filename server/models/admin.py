@@ -1,7 +1,7 @@
 from db import db
 
-class User(db.Model):
-    __tablename__ = 'admin'
+class Admins(db.Model):
+    __tablename__ = 'admins'
     id = db.Column(db.Integer, primary_key=True)
     admin_login = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(80), nullable=False)
@@ -13,9 +13,9 @@ class User(db.Model):
 
     @classmethod
     def find_by_admin_login(cls, admin_login):
-        admin_login = cls.query.filter_by(admin_login=admin_login).first()
-        if admin_login is not None:
-            return admin_login
+        login = cls.query.filter_by(admin_login=admin_login).first()
+        if login is not None:
+            return login
         return None
 
     @classmethod

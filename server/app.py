@@ -1,6 +1,7 @@
 from modules.login.resource.login import Login
 from modules.root.resource.root import Root
 from modules.register.resource.register import Register
+from modules.admin.resource.admin import Admin
 
 from flask import Flask
 from flask_restful import Api
@@ -25,7 +26,8 @@ def create_tables():
 
 api.add_resource(Root, '/', )
 api.add_resource(Login, "/login", )
-api.add_resource(Register, "/register", ) 
+api.add_resource(Register, "/register", )
+api.add_resource(Admin, "/admin", )
 
 if __name__ == "__main__":
     app.run(debug=True)
