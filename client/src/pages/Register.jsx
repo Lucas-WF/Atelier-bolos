@@ -1,6 +1,6 @@
 import {React, useState} from "react";
 import api from "../services/api";
-import "../assets/css/Auth.css";
+import "../assets/css/MarginTop.css";
 
 export default function Register( { history } ) {
     const [email, setEmail] = useState('');
