@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from models.products import Products
 from flask import jsonify, request, make_response
-import datetime
+from datetime import datetime
 
 
 class AllProducts(Resource):
@@ -22,9 +22,11 @@ class AllProducts(Resource):
 
     def post(self):
         data = request.get_json()
-        date = data['date_created'].split('/')
-        date_created = datetime.datetime(
-            int(date[0]), int(date[1]), int(date[2]))
+        date_time = data['date_created'].split(' ')
+        date = date_time[0].split('/')
+        hour = date_time[1].split(':')
+        date_created = datetime(
+            int(date[0]), int(date[1]), int(date[2]), int(hour[0]), int(hour[1]), int(hour[2]))
 
         new_product = Products(name=data['name'], price=data['price'], description=data[
             'description'], quantity=data['quantity'], date_created=date_created, category=data['category'])

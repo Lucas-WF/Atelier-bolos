@@ -3,7 +3,7 @@ from db import db
 class Products(db.Model):
     __tablename__ = 'products'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), nullable=False)
+    name = db.Column(db.String(80), nullable=False, unique=False)
     price = db.Column(db.Float, nullable=False)
     description = db.Column(db.String(255), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
@@ -36,10 +36,10 @@ class Products(db.Model):
     def save_product(cls, product):
         db.session.add(product)
         db.session.commit()
-    
+
     @classmethod
     def update_product(cls, product):
-        Products.find_by_id(product.id).update(product)
+        cls.query.filter_by(id=product.id).update(product.as_dict())
         db.session.commit()
 
     @classmethod
