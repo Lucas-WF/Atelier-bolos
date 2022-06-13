@@ -23,5 +23,5 @@ class Admins(db.Model):
         db.session.add(admin)
         db.session.commit()
 
-    def __repr__(self):
-        return '<Admin %r>' % self.admin_login
+    def __repr__(self) -> str:
+        return f'<Admin {self.admin_login}>'

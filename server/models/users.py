@@ -31,5 +31,5 @@ class Users(db.Model):
         db.session.add(user)
         db.session.commit()
 
-    def __repr__(self):
-        return '<User %r>' % self.username
+    def __repr__(self) -> str:
+        return f'<Username {self.username}>'
