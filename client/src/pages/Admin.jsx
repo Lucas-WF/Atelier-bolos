@@ -13,7 +13,11 @@ export default function Admin({ history }) {
             password: password
         }).then(response => {
             if (response.status === 200) {
-                history.push('/');
+                localStorage.setItem('admin_token', response.data.token);
+                localStorage.setItem('admin_username', response.data.login);
+                console.log(response.data);
+                window.open('/adminhome', '_self');
+                history.push('/adminhome');
             }
         }).catch(error => {
             alert('Dados incorretos.');

@@ -4,15 +4,17 @@ class Users(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
+    name = db.Column(db.String(80), unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), nullable=False)
-    token = db.Column(db.String(120), unique=True, nullable=False)
+    number = db.Column(db.String(80), unique=True, nullable=False)
 
-    def __init__(self, username, password, email, token):
+    def __init__(self, username, password, email, name, number):
         self.username = username
+        self.name = name
+        self.number = number
         self.password = password
         self.email = email
-        self.token = token
 
 
     @classmethod
@@ -35,6 +37,13 @@ class Users(db.Model):
         mail = cls.query.filter_by(email=email).first()
         if mail is not None:
             return mail
+        return None
+
+    @classmethod
+    def find_by_number(cls, number):
+        num = cls.query.filter_by(number=number).first()
+        if num is not None:
+            return num
         return None
 
     @classmethod

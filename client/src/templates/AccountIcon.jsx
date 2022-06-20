@@ -7,7 +7,7 @@ export default function AccountIcon() {
     return (
         <div className="account">
             <Link to="/account">
-                <img src={icon} alt="icon" width="80" height="80"/>
+                <img src={icon} alt="icon" width="60" height="60"/>
             </Link>
         </div>
     );

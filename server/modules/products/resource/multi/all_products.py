@@ -29,8 +29,9 @@ class AllProducts(Resource):
             int(date[0]), int(date[1]), int(date[2]), int(hour[0]), int(hour[1]), int(hour[2]))
 
         new_product = Products(name=data['name'], price=data['price'], description=data[
-            'description'], quantity=data['quantity'], date_created=date_created, category=data['category'])
+            'description'], quantity=data['quantity'], date_created=date_created, category=data['category'], image=data['image'])
         Products.save_product(new_product)
         response_json = jsonify(new_product.as_dict())
         response = make_response(response_json, 201)
         return response
+

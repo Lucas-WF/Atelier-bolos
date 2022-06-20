@@ -15,7 +15,11 @@ export default function Login({ history }) {
             password: password
         }).then(response => {
             if (response.status === 200) {
-                localStorage.setItem('token', JSON.stringify(response.data));
+                localStorage.setItem('token', response.data.token);
+                localStorage.setItem('username', response.data.username);
+                localStorage.setItem('email', response.data.email);
+                localStorage.setItem('name', response.data.name);
+                localStorage.setItem('number', response.data.number);
                 window.open('/', '_self');
                 history.push('/');
             }

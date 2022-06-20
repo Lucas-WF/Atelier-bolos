@@ -9,16 +9,16 @@ class Products(db.Model):
     quantity = db.Column(db.Integer, nullable=False)
     date_created = db.Column(db.DateTime, nullable=False)
     category = db.Column(db.String(80), nullable=False)
-    image_path = db.Column(db.String(255), nullable=True)
+    image = db.Column(db.BLOB, nullable=True)
 
-    def __init__(self, name, price, description, quantity, date_created, category, image_path=None):
+    def __init__(self, name, price, description, quantity, date_created, category, image=None):
         self.name = name
         self.price = price
         self.description = description
         self.quantity = quantity
         self.date_created = date_created
         self.category = category
-        self.image_path = image_path
+        self.image = image
 
     @classmethod
     def find_by_name(cls, name):

@@ -20,7 +20,7 @@ class AllUsers(Resource):
             dict_users = []
             return response
         else:
-            response_json = jsonify({'message': 'Product not found'})
+            response_json = jsonify({'message': 'User not found'})
             response = make_response(response_json, 404)
             return response
 

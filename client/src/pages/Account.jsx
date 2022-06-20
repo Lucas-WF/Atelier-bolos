@@ -1,38 +1,39 @@
-import React, { useEffect } from "react";
-import api from "../services/api";
+import React from "react";
 
 
 export default function Account( { history }) {
-    const [user, setUser] = React.useState("");
 
-    useEffect(() => {
-        async function getUser() {
-            const response = await api.get("/user");
-            setUser(response.data);
-        }
-        getUser();
+    function handleLogout(event) {
+        event.preventDefault();
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
+        localStorage.removeItem('email');
+        localStorage.removeItem('name');
+        localStorage.removeItem('number');
+        window.open('/', '_self');
+        history.push('/');
     }
-    , []);
-
-    
 
     if (localStorage.getItem("token")) {
     return (
         <div className="account">
-            <h1 class="text-center mt-5">Account</h1>
+            <h1 class="text-center mt-5">Conta</h1>
             <div className="container mx-auto text-center w-25 mt-5">
                 <ul className="list-group">
-                    <li className="list-group-item">
-                        <strong>Nome:</strong> {user.name}
+                    <li className="list-group-item text-left">
+                        <strong>Nome:</strong> {localStorage.getItem("name")}
                     </li>
-                    <li className="list-group-item">
-                        <strong>Email:</strong> {user.email}
+                    <li className="list-group-item text-left">
+                        <strong>Nome de Usuário:</strong> {localStorage.getItem("username")}
                     </li>
-                    <li className="list-group-item">
-                        <strong>Username:</strong> {user.username}
+                    <li className="list-group-item text-left">
+                        <strong>Email:</strong> {localStorage.getItem("email")}
+                    </li>
+                    <li className="list-group-item text-left">
+                        <strong>Número de telemóvel:</strong> {localStorage.getItem("number")}
                     </li>
                 </ul>
-
+                <button onClick={handleLogout} class="rounded text-light btn-lg mt-4" style={{ "background-color": "rgb(224, 31, 105)", "border-color": "rgb(224, 31, 105)" }}>Sair</button>
             </div>
         </div>
     );

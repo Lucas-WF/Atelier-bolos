@@ -33,6 +33,7 @@ class Product(Resource):
 
             product.date_created = date_created
             product.category = data['category']
+            product.image = data['image']
 
             Products.update_product(product)
             response_json = jsonify(product.as_dict())
@@ -76,6 +77,8 @@ class Product(Resource):
                 product.date_created = date_created
             if 'category' in data:
                 product.category = data['category']
+            if 'image' in data:
+                product.image = data['image']
             Products.update_product(product)
             response_json = jsonify(product.as_dict())
             response = make_response(response_json, 200)
