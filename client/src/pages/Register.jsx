@@ -1,8 +1,8 @@
-import {React, useState} from "react";
+import { React, useState } from "react";
 import api from "../services/api";
 import "../assets/css/MarginTop.css";
 
-export default function Register( { history } ) {
+export default function Register({ history }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
@@ -10,14 +10,21 @@ export default function Register( { history } ) {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const response = await api.post('/register', {
+        await api.post('/register', {
             email: email,
             username: username,
             password: password
-        });
-
-        console.log(response.data);
-        history.push('/login');
+        }).then(response => {
+            if (response.status === 201) {
+                localStorage.setItem('token', JSON.stringify(response.data));
+                window.open('/', '_self');
+                history.push('/');
+            }
+        }
+        ).catch(error => {
+            alert('Erro ao registrar usuário');
+        }
+        );
     }
 
     return (
@@ -40,7 +47,7 @@ export default function Register( { history } ) {
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-block mb-4">Criar</button>
-                
+
             </form>
         </div>);
 }

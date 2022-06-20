@@ -4,6 +4,8 @@ from modules.register.resource.register import Register
 from modules.admin.resource.admin import Admin
 from modules.products.resource.single.product import Product
 from modules.products.resource.multi.all_products import AllProducts
+from modules.users.resource.multi.all_user import AllUsers
+from modules.users.resource.single.user import User
 
 from flask import Flask
 from flask_restful import Api
@@ -34,6 +36,8 @@ api.add_resource(Register, "/register", )
 api.add_resource(Admin, "/admin", )
 api.add_resource(AllProducts, "/product/", )
 api.add_resource(Product, "/product/<int:product_id>", )
+api.add_resource(AllUsers, "/user/", )
+api.add_resource(User, "/user/<int:user_id>", )
 
 if __name__ == "__main__":
     app.run(debug=True)

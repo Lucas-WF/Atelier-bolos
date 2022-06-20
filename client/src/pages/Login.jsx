@@ -15,9 +15,12 @@ export default function Login({ history }) {
             password: password
         }).then(response => {
             if (response.status === 200) {
+                localStorage.setItem('token', JSON.stringify(response.data));
+                window.open('/', '_self');
                 history.push('/');
             }
         }).catch(error => {
+            alert('Usuário ou senha incorretos');
         });
 
     }

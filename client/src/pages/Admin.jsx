@@ -16,6 +16,7 @@ export default function Admin({ history }) {
                 history.push('/');
             }
         }).catch(error => {
+            alert('Dados incorretos.');
         });
 
     }
