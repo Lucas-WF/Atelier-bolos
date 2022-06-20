@@ -28,8 +28,7 @@ export default function AdminHome({ history }) {
               const fileReader = new FileReader();
               fileReader.onload = function(fileLoadedEvent) {
                 const srcData = fileLoadedEvent.target.result;
-                console.log(srcData);
-                return srcData;
+                return btoa(srcData);
               }
               fileReader.readAsDataURL(fileToLoad);
             }
@@ -41,14 +40,15 @@ export default function AdminHome({ history }) {
         async function handleSubmit(event) {
             event.preventDefault();
 
-            await api.post('/product/', {
+            await api.post('/product/', 
+            {
                 name: name,
                 price: price,
                 description: description,
                 quantity: quantity,
-                date: date,
+                date_created: date,
                 type: type,
-                image: encodeImageFileAsURL(image)
+                image: encodeImageFileAsURL()
             }).then(response => {
                 if (response.status === 200) {
                     alert('Produto adicionado com sucesso.');

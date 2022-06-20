@@ -70,13 +70,11 @@ class Product(Resource):
                 product.quantity = data['quantity']
             if 'date_created' in data:
                 date_time = data['date_created'].split(' ')
-                date = date_time[0].split('/')
-                hour = date_time[1].split(':')
-                date_created = datetime(
-                    int(date[0]), int(date[1]), int(date[2]), int(hour[0]), int(hour[1]), int(hour[2]))
+                date = date_time[0].split('-')
+                date_created = datetime(int(date[0]), int(date[1]), int(date[2]))
                 product.date_created = date_created
-            if 'category' in data:
-                product.category = data['category']
+            if 'type' in data:
+                product.category = data['type']
             if 'image' in data:
                 product.image = data['image']
             Products.update_product(product)
