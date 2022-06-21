@@ -6,7 +6,7 @@ export default function Cupcakes({ history }) {
         return (
             <div className="cupcakes">
                 <h1 class="text-center mt-5">Cupcakes</h1>
-                <div className="container mx-auto text-center w-25 mt-5">
+                <div class="container mx-auto text-center w-25 mt-5">
                 </div>
             </div>
         );
@@ -17,7 +17,7 @@ export default function Cupcakes({ history }) {
         return (
             <div className="cupcakes">
                 <h1 class="text-center mt-5">Cupcakes</h1>
-                <div className="container mx-auto text-center w-25 mt-5">
+                <div class="container mx-auto text-center w-25 mt-5">
                 </div>
             </div>
         );

@@ -6,7 +6,7 @@ export default function Cakes({ history }) {
         return (
             <div className="cakes">
                 <h1 class="text-center mt-5">Bolos</h1>
-                <div className="container mx-auto text-center w-25 mt-5">
+                <div class="container mx-auto text-center w-25 mt-5">
                 </div>
             </div>
         );
@@ -15,7 +15,7 @@ export default function Cakes({ history }) {
         return (
             <div className="cakes">
                 <h1 class="text-center mt-5">Bolos</h1>
-                <div className="container mx-auto text-center w-25 mt-5">
+                <div class="container mx-auto text-center w-25 mt-5">
                 </div>
             </div>
         );

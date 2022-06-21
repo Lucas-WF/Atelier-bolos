@@ -21,43 +21,27 @@ export default function AdminHome({ history }) {
             history.push('/');
         }
 
-        function encodeImageFileAsURL() {
-            const filesSelected = document.getElementById("image").files 
-            if (filesSelected.length > 0) {
-              const fileToLoad = filesSelected[0];
-              const fileReader = new FileReader();
-              fileReader.onload = function(fileLoadedEvent) {
-                const srcData = fileLoadedEvent.target.result;
-                return btoa(srcData);
-              }
-              fileReader.readAsDataURL(fileToLoad);
-            }
-            else {
-                return null;
-            }
-        }
-
         async function handleSubmit(event) {
             event.preventDefault();
 
-            await api.post('/product/', 
-            {
-                name: name,
-                price: price,
-                description: description,
-                quantity: quantity,
-                date_created: date,
-                type: type,
-                image: encodeImageFileAsURL()
-            }).then(response => {
-                if (response.status === 200) {
-                    alert('Produto adicionado com sucesso.');
-                    window.open('/adminhome', '_self');
-                    history.push('/adminhome');
-                }
-            }).catch(error => {
-                alert('Dados incorretos.');
-            });
+            await api.post('/product/',
+                {
+                    name: name,
+                    price: price,
+                    description: description,
+                    quantity: quantity,
+                    date_created: date,
+                    type: type,
+                    image: image
+                }).then(response => {
+                    if (response.status === 201) {
+                        alert('Produto adicionado com sucesso.');
+                        window.open('/adminhome', '_self');
+                        history.push('/adminhome');
+                    }
+                }).catch(error => {
+                    alert('Dados incorretos.');
+                });
 
         }
 
@@ -65,7 +49,7 @@ export default function AdminHome({ history }) {
             <div className="home">
                 <h1 class="text-center mt-5">Olá Confeiteiro {localStorage.getItem('admin_username')}!</h1>
                 <h3 class="text-center">Insira aqui os dados do produto que você quer publicar:</h3>
-                <div className="container mx-auto text-center w-25 mt-5">
+                <div class="container mx-auto text-center w-25 mt-5">
                     <form class="form text-center" onSubmit={handleSubmit}>
                         <div class="form-outline mb-4">
                             <input placeholder="Nome do produto" type="text" id="name" name="name" value={name} onChange={event => setName(event.target.value)} class="form-control" />
@@ -86,7 +70,7 @@ export default function AdminHome({ history }) {
                             <input placeholder="Tipo de produto" type="text" id="type" name="type" value={type} onChange={event => setType(event.target.value)} class="form-control" />
                         </div>
                         <div class="mb-4">
-                            <input placeholder="Imagem do produto" type="file" id="image" name="image" value={image} onChange={event => setImage(event.target.value)} class="form-control" />
+                            <input placeholder="Imagem do produto" type="file" accept="image/*" id="image" name="image" value={image} onChange={event => setImage(event.target.value)} class="form-control" />
                         </div>
                         <button type="submit" class="btn btn-primary btn-block mb-4">Publicar</button>
                     </form>

@@ -18,7 +18,7 @@ export default function Home() {
             <div className="home">
                 <h1 class="text-center mt-5">Seja bem-vindo ao nosso Ateliê!</h1>
                 <h3 class="text-center mt-5">Para continuar, faça login ou registre-se</h3>
-                <div className="container mx-auto text-center w-25 mt-5">
+                <div class="container mx-auto text-center w-25 mt-5">
                     <Link to="/login">
                         <button type="submit" class="btn btn-primary btn-block mb-2">Login</button>
                     </Link>

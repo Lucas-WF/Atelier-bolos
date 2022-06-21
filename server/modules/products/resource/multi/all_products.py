@@ -32,6 +32,5 @@ class AllProducts(Resource):
         Products.save_product(new_product)
         response_json = jsonify(new_product.as_dict())
         response = make_response(response_json, 201)
-        response.add_header('Allow-Control-Allow-Origin', '*')
         return response
 

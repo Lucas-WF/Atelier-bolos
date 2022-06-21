@@ -5,7 +5,7 @@ export default function AboutUs() {
     return (
         <div class="layered-image">
             <h1 className="about-us" class="mt-5 text-white text-center">Sobre nós</h1>
-            <div className="container mx-auto text-center w-50 mt-5">
+            <div class="container mx-auto text-center w-50 mt-5">
                 <p className="about-us-body-1" class="mt-5 text-white text-center h4">
                     A nossa empresa nasceu no ensino médio, a escola foi o ponta pé inicial para a construção desse grande sonho, na qual, três jovens que precisavam arranjar um jeito de conseguir dinheiro para a viagem de formatura, não tinham ideia de que a venda de bolos iria dar muito certo.
                 </p> 

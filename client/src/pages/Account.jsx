@@ -18,18 +18,18 @@ export default function Account( { history }) {
     return (
         <div className="account">
             <h1 class="text-center mt-5">Conta</h1>
-            <div className="container mx-auto text-center w-25 mt-5">
-                <ul className="list-group">
-                    <li className="list-group-item text-left">
+            <div class="container mx-auto text-center w-25 mt-5">
+                <ul class="list-group">
+                    <li class="list-group-item text-left">
                         <strong>Nome:</strong> {localStorage.getItem("name")}
                     </li>
-                    <li className="list-group-item text-left">
+                    <li class="list-group-item text-left">
                         <strong>Nome de Usuário:</strong> {localStorage.getItem("username")}
                     </li>
-                    <li className="list-group-item text-left">
+                    <li class="list-group-item text-left">
                         <strong>Email:</strong> {localStorage.getItem("email")}
                     </li>
-                    <li className="list-group-item text-left">
+                    <li class="list-group-item text-left">
                         <strong>Número de telemóvel:</strong> {localStorage.getItem("number")}
                     </li>
                 </ul>
