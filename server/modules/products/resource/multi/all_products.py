@@ -1,9 +1,7 @@
-import imp
 from flask_restful import Resource
 from models.products import Products
 from flask import jsonify, request, make_response
 from datetime import datetime
-import base64
 
 
 class AllProducts(Resource):
