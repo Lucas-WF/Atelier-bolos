@@ -8,7 +8,7 @@ import phone from "../assets/img/telephone.svg";
 export default function Contact() {
     return (
         <div class="container">
-            <h1 class="text-center mt-5">Algumas maneiras de entrar em contato com a gente:</h1>
+            <h2 class="text-center mt-5">Algumas maneiras de entrar em contato com a gente:</h2>
             <div class="container mx-auto text-center w-100 mt-5">
                 <div class="d-flex justify-content-center">
                     <div class="pr-5 mr-5">
@@ -24,11 +24,11 @@ export default function Contact() {
                         <p class="text-center">(85) 9 8416-9032</p>
                     </div>
                     <div class="pr-5 mr-5">
-                        <a href="https://t.me/Lucas_WF">
+                        <a href="https://t.me/ronysantts">
                             <img src={telegram} alt="telegram" class="img-fluid" />
                         </a>
                         <h3 class="text-center" style={{"color": "rgb(224, 31, 105)"}}>Telegram</h3>
-                        <p class="text-center">(85) 9 8633-4240</p>
+                        <p class="text-center">(85) 9 8416-9032</p>
                     </div>
                     <div>
                         <a href="mailto:lucas.wf@outlook.com">

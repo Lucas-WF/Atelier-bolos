@@ -13,6 +13,18 @@ export default function AdminHome({ history }) {
 
     if (localStorage.getItem('admin_token')) {
 
+        function encodeImage(inputedImage) {
+            const file = inputedImage;
+            const reader = new FileReader();
+            reader.onloadend = function() {
+              console.log('RESULT', reader.result)
+              const loadedImage = JSON.stringify(reader.result)
+              const imageArray = loadedImage.split("base64,")
+              setImage(imageArray[1])
+            }
+            reader.readAsDataURL(file);
+          }
+
         function handleLogout(event) {
             event.preventDefault();
             localStorage.removeItem('admin_token');
@@ -70,7 +82,7 @@ export default function AdminHome({ history }) {
                             <input placeholder="Tipo de produto" type="text" id="type" name="type" value={type} onChange={event => setType(event.target.value)} class="form-control" />
                         </div>
                         <div class="mb-4">
-                            <input placeholder="Imagem do produto" type="file" accept="image/*" id="image" name="image" value={image} onChange={event => setImage(event.target.value)} class="form-control" />
+                            <input placeholder="Imagem do produto" type="file" accept="image/*" id="image" name="image" onChange={event => encodeImage(event.target.files[0])} class="form-control" />
                         </div>
                         <button type="submit" class="btn btn-primary btn-block mb-4">Publicar</button>
                     </form>

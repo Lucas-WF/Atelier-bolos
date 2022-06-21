@@ -9,7 +9,7 @@ class Products(db.Model):
     quantity = db.Column(db.Integer, nullable=False)
     date_created = db.Column(db.DateTime, nullable=False)
     category = db.Column(db.String(80), nullable=False)
-    image = db.Column(db.BLOB, nullable=True)
+    image = db.Column(db.String, nullable=True)
 
     def __init__(self, name, price, description, quantity, date_created, category, image=None):
         self.name = name

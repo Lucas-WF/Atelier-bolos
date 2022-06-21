@@ -1,7 +1,9 @@
+import imp
 from flask_restful import Resource
 from models.products import Products
 from flask import jsonify, request, make_response
 from datetime import datetime
+import base64
 
 
 class AllProducts(Resource):
@@ -22,7 +24,6 @@ class AllProducts(Resource):
 
     def post(self):
         data = request.get_json()
-        print(data["image"])
         date_time = data['date_created'].split(' ')
         date = date_time[0].split('-')
         date_created = datetime(int(date[0]), int(date[1]), int(date[2]))
