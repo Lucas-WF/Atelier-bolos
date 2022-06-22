@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../services/api.js"
+import defaultImage from  "../assets/img/cakes.jpg"
 
 
 export default function Cakes({ history }) {
@@ -15,32 +16,12 @@ export default function Cakes({ history }) {
         loadProducts()
     })
 
-    const b64toBlob = (b64Data, sliceSize=512) => {
-        const contentType = "image/png"
-        const byteCharacters = atob(b64Data);
-        const byteArrays = [];
-      
-        for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-          const slice = byteCharacters.slice(offset, offset + sliceSize);
-      
-          const byteNumbers = new Array(slice.length);
-          for (let i = 0; i < slice.length; i++) {
-            byteNumbers[i] = slice.charCodeAt(i);
-          }
-      
-          const byteArray = new Uint8Array(byteNumbers);
-          byteArrays.push(byteArray);
-        }
-      
-        const blob = new Blob(byteArrays, {type: contentType});
-        const blobUrl = URL.createObjectURL(blob);
-        const img = document.createElement('img');
-        img.src = blobUrl;
-        document.body.appendChild(img);
-      }
-      
-
-
+    function base64ToImage(file) {
+        file = file.slice(0, file.length - 1)
+        const image = new Image();
+        image.src = "data:image/png;base64," + file
+        return image.src
+    }
 
     if (localStorage.getItem("token")) {
         return (
@@ -51,12 +32,11 @@ export default function Cakes({ history }) {
                     <ul>
                         {products.map(product => (
                             <li key={product.id}>
-                                {product.name}
                                 {product.image != null ? (
-                                    b64toBlob(product.image)
+                                    <img src = {base64ToImage(product.image)} alt="cakeImage" class="w-50"/>
                                 ) :
                                 (
-                                    <p>A</p>
+                                    <img src={defaultImage} alt="default" class="w-50"/>
                                 )
                                 }
                                 

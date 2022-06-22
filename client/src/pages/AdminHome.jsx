@@ -19,7 +19,8 @@ export default function AdminHome({ history }) {
             reader.onloadend = function() {
               console.log('RESULT', reader.result)
               const loadedImage = JSON.stringify(reader.result)
-              const imageArray = loadedImage.split("base64,")
+              const imageArray = loadedImage.split("base64,")[1]
+              console.log(imageArray)
               setImage(imageArray[1])
             }
             reader.readAsDataURL(file);
