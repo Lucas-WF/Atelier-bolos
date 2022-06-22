@@ -1,26 +1,27 @@
 .cakeImage {
     border-radius: 10px;
     max-width: 100%;
-    width: 165.13px;
-    height: 165.13px;
+    width: 230px;
+    height: 230px;
     object-fit: cover;
-
     flex: none;
     order: 0;
     flex-grow: 0;
 }
 
-.product {
+.products {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
+    flex-wrap: wrap;
+}
+
+.product {  
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;  
+    padding-left: 110px;
     gap: 17px;
-    
-    width: 482.66px;
-    height: 165.13px;
-    
-    
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -31,11 +32,10 @@
     font-weight: 400;
     flex-direction: column;
     align-items: flex-start;
-    font-size: 19.8154px;
+    word-wrap: break-word;
+    font-size: 30px;
     line-height: 26px;
-
     color: #000000;
-
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -46,13 +46,11 @@
     font-weight: 400;
     flex-direction: column;
     align-items: flex-start;
-    font-size: 11.559px;
+    word-wrap: break-word;
+    font-size: 17px;
     line-height: 17px;
-    
     letter-spacing: 0.20641px;
-    
     color: #000000;
-    
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -61,14 +59,9 @@
 .productPrice {
     font-style: normal;
     font-weight: 400;
-    font-size: 29.7231px;
+    font-size: 40px;
     line-height: 36px;
-
-
     color: #000000;
-
-
-
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -79,15 +72,21 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    font-size: 15px;
     padding: 8.25641px;
     gap: 8.26px;
     color: white;
-
     background: #E6359F;
     border-radius: 41.2821px;
     border-color: #E6359F;
-
     flex: none;
     order: 1;
     flex-grow: 0;
+}  
+
+.productDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: end;
 }

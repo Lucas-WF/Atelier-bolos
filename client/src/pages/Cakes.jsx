@@ -5,12 +5,16 @@ import "../assets/css/Image.css"
 
 
 export default function Cakes({ history }) {
-    const [products, setProdocuts] = useState([])
+    const [products, setProducts] = useState([])
+
+    async function addToCart(file) {
+        history.push("/checkout/" + file)
+    }
 
     useEffect(() => {
         async function loadProducts() {
             const response = await api.get("/product")
-            setProdocuts(response.data);
+            setProducts(response.data);
         }
         loadProducts();
     })
@@ -26,32 +30,38 @@ export default function Cakes({ history }) {
         return (
             <div className="cakes">
                 <h1 class="text-center mt-5">Bolos</h1>
-                <div class="container text-center mt-5">
+                <div class="container mt-5">
                     {products.length > 0 ? (
-                        <ul class="products">
-                            {products.map(product => (
-                                <li key={product.id} class="product mb-5">
-                                    {product.image != null ? (
-                                        <img src={base64ToImage(product.image)} alt="cakeImage" class="cakeImage" />
-                                    ) :
-                                        (
-                                            <img src={defaultImage} alt="default" class="cakeImage" />
-                                        )
-                                    }
-                                    <div>
-                                        <p class="productTitle">{product.name}</p>
-                                        <p class="productDescription">{product.description}</p>
-                                        <footer class="productDiv">
-                                            <p class="productPrice">R${product.price}</p>
-                                            <button class="productButton">Adicionar ao carrinho</button>
-                                        </footer>
-                                    </div>
+                        <div >
+                            <div class="col-4"></div>
+                            <div class="col-md-auto">
+                                <div class="products">
+                                    {products.map(product => (
+                                        <div key={product.id} class="product mb-5">
+                                            {product.image != null ? (
+                                                <img src={base64ToImage(product.image)} alt="cakeImage" class="cakeImage" />
+                                            ) :
+                                                (
+                                                    <img src={defaultImage} alt="default" class="cakeImage" />
+                                                )
+                                            }
+                                            <div>
+                                                <p class="productTitle">{product.name}</p>
+                                                <p class="productDescription">{product.description}</p>
+                                                <div class="productDiv" style={{ "height": "155px" }}>
+                                                    <p class="productPrice">R${product.price}</p>
+                                                    <button class="productButton" onClick={() => addToCart(product.id)}>Comprar</button>
+                                                </div>
+                                            </div>
 
-                                </li>
-                            )
+                                        </div>
+                                    )
 
-                            )}
-                        </ul>
+                                    )}
+                                </div>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
                     ) :
                         (
                             <div className="empty"></div>
@@ -67,28 +77,43 @@ export default function Cakes({ history }) {
         return (
             <div className="cakes">
                 <h1 class="text-center mt-5">Bolos</h1>
-                <div class="container mx-auto text-center w-25 mt-5">
+                <div class="container mt-5">
                     {products.length > 0 ? (
-                        <ul>
-                            {products.map(product => (
-                                <li key={product.id}>
-                                    {product.image != null ? (
-                                        <img src={base64ToImage(product.image)} alt="cakeImage" class="w-50" />
-                                    ) :
-                                        (
-                                            <img src={defaultImage} alt="default" class="w-50" />
-                                        )
-                                    }
+                        <div >
+                            <div class="col-4"></div>
+                            <div class="col-md-auto">
+                                <div class="products">
+                                    {products.map(product => (
+                                        <div key={product.id} class="product mb-5" >
+                                            {product.image != null ? (
+                                                <img src={base64ToImage(product.image)} alt="cakeImage" class="cakeImage"  />
+                                            ) :
+                                                (
+                                                    <img src={defaultImage} alt="default" class="cakeImage" />
+                                                )
+                                            }
+                                            <div>
+                                                <p class="productTitle">{product.name}</p>
+                                                <p class="productDescription">{product.description}</p>
+                                                <div class="productDiv" style={{ "height": "155px" }}>
+                                                    <p class="productPrice">R${product.price}</p>
+                                                    <button class="productButton" onClick={() => history.push("/edit/"+product.id)} style={{"width":"170px"}}>Editar</button>
+                                                </div>
+                                            </div>
 
-                                </li>
-                            )
+                                        </div>
+                                    )
 
-                            )}
-                        </ul>
+                                    )}
+                                </div>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
                     ) :
                         (
-                            <div className="empty">Sem bolos no momento!</div>
-                        )}
+                            <div className="empty"></div>
+                        )
+                    }
 
 
                 </div>

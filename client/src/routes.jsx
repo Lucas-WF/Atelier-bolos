@@ -10,8 +10,9 @@ import AdminHome from "./pages/AdminHome.jsx"
 import Cakes from "./pages/Cakes.jsx";
 import Cupcakes from "./pages/Cupcakes.jsx";
 import Account from "./pages/Account.jsx";
-import Cart from "./pages/Cart.jsx";
 import Contact from "./pages/Contact.jsx";
+import Edit from "./pages/Edit.jsx";
+import Checkout from "./pages/Checkout.jsx";
 
 export default function Routes() {
     return (
@@ -26,9 +27,9 @@ export default function Routes() {
             <Route path="/cakes" component={Cakes} />
             <Route path="/cupcakes" component={Cupcakes} />
             <Route path="/account" component={Account} />
-            <Route path="/cart" component={Cart} />
             <Route path="/contact" component={Contact} />
-
+            <Route path="/edit/:id" component={Edit} />
+            <Route path="/checkout/:id" component={Checkout} />
             
         </BrowserRouter>
     );
