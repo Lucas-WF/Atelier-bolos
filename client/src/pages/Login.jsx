@@ -29,6 +29,10 @@ export default function Login({ history }) {
 
     }
 
+    if (localStorage.getItem('token') || localStorage.getItem('admin_token')) {
+        history.push('/');
+    }
+
     return (
         <div class="container mx-auto text-center w-25 mt-5">
             <h1 class="mb-5">Bolinhooo...</h1>

@@ -49,9 +49,6 @@ export default function Nav() {
                     <li class="nav-item">
                         <h5><Link to="/cakes" class="nav-link" style={{"color": "rgb(224, 31, 105)"}}>Bolos</Link></h5>
                     </li>
-                    <li class="nav-item">
-                        <h5><Link to="/cupcakes" class="nav-link" style={{"color": "rgb(224, 31, 105)"}}>Carrinho</Link></h5>
-                    </li>
                 </ul>
             </div>
         </nav>
@@ -70,6 +67,9 @@ export default function Nav() {
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <h5><Link to="/aboutus" class="nav-link" style={{"color": "rgb(224, 31, 105)"}}>Sobre nós</Link></h5>
+                    </li>
+                    <li class="nav-item">
+                        <h5><Link to="/contact" class="nav-link" style={{"color": "rgb(224, 31, 105)"}}>Contato</Link></h5>
                     </li>
                     <li class="nav-item">
                         <h5><Link to="/register" class="nav-link" style={{"color": "rgb(224, 31, 105)"}}>Criar conta</Link></h5>

@@ -24,6 +24,11 @@ export default function Admin({ history }) {
         });
 
     }
+
+    if (localStorage.getItem('token')) {
+        history.push('/');
+    }
+
     return (
         <div class="container mx-auto text-center w-25 mt-5">
             <h1 class="mb-5">Página do Confeiteiro</h1>

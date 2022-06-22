@@ -17,10 +17,8 @@ export default function AdminHome({ history }) {
             const file = inputedImage;
             const reader = new FileReader();
             reader.onloadend = function() {
-              console.log('RESULT', reader.result)
               const loadedImage = JSON.stringify(reader.result)
               const imageArray = loadedImage.split("base64,")[1]
-              console.log(imageArray)
               setImage(imageArray[1])
             }
             reader.readAsDataURL(file);
@@ -91,6 +89,10 @@ export default function AdminHome({ history }) {
                 </div>
             </div>
         );
+    }
+
+    else if (localStorage.getItem('token')) {
+        history.push('/');
     }
 
     else {

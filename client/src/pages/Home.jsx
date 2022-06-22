@@ -3,8 +3,12 @@ import "../assets/css/MarginTop.css"
 import { Link } from "react-router-dom";
 import Cards from "../templates/Cards";
 
-export default function Home() {
-    if (localStorage.getItem('token')) {
+export default function Home({ history }) {
+    if (localStorage.getItem('admin_token')) {
+        history.push('/adminhome');
+    }
+
+    else if (localStorage.getItem('token')) {
         return (
             <div className="home">
                 <h1 class="text-center mt-5">Olá!</h1>
